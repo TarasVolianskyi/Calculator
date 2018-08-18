@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnEqvl;
     private Button btnPoint;
     private Button btnPercent;
+    private Button btnChange;
     private Button btnC;
     private String num1 = "";
     private String num2 = "";
@@ -34,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int intNum2;
     private int intNum3;
     private String stringAction;
-    private int numAction = 0;// 1+ 2- 3* 4/
+    private int numAction = 0;// 1+ 2- 3☓ 4÷
+    private boolean boolChangeFirst = false;
+    private boolean boolChangeSec = false;
     private boolean action = false;
 
 
@@ -60,8 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlus = findViewById(R.id.btnPlus);
         btnMin = findViewById(R.id.btnMin);
         btnMultp = findViewById(R.id.btnMult);
+        btnDevide = findViewById(R.id.btnDevide);
         btnPoint = findViewById(R.id.btnPoint);
         btnEqvl = findViewById(R.id.btnEqvl);
+        btnChange = findViewById(R.id.btnChange);
         btnC = findViewById(R.id.btnC);
 
         btn1.setOnClickListener(this);
@@ -77,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlus.setOnClickListener(this);
         btnMin.setOnClickListener(this);
         btnMultp.setOnClickListener(this);
+        btnDevide.setOnClickListener(this);
         btnPoint.setOnClickListener(this);
+        btnChange.setOnClickListener(this);
         btnEqvl.setOnClickListener(this);
         btnC.setOnClickListener(this);
     }
@@ -175,6 +182,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textView.setText(num1 + " " + stringAction + " " + num2);
                 }
                 break;
+
+            case R.id.btnChange:
+                 if (action == false) {
+                // num1 += "8";
+                if (boolChangeFirst == false) {
+                    boolChangeFirst = true;
+                    textView.setText("- " + num1);
+                } else {
+                    boolChangeFirst = false;
+                    textView.setText(num1);
+                }
+
+                //textView.setText("- " + num1);
+                } else {
+                     if (boolChangeSec == false) {
+                         boolChangeSec = true;
+                         textView.setText(num1 + " " + stringAction + " ( -" + num2+")");
+                     } else {
+                         boolChangeSec = false;
+                         textView.setText(num1 + " " + stringAction + " " + num2);
+                     }
+                   // textView.setText(num1 + " " + stringAction + " " + num2);
+                }
+                break;
             case R.id.btnPlus:
                 action = true;
                 stringAction = "+";
@@ -189,9 +220,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnMult:
                 action = true;
-                stringAction = "*";
+                stringAction = "☓";
                 textView.setText(num1 + " " + stringAction);
                 numAction = 3;
+                break;
+            case R.id.btnDevide:
+                action = true;
+                stringAction = "÷";
+                textView.setText(num1 + " " + stringAction);
+                numAction = 4;
                 break;
             case R.id.btnEqvl:
                 intNum1 = Integer.parseInt(num1);
