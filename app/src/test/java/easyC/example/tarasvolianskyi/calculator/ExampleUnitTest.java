@@ -1,4 +1,4 @@
-package com.example.tarasvolianskyi.calculator;
+package easyC.example.tarasvolianskyi.calculator;
 
 import org.junit.Test;
 

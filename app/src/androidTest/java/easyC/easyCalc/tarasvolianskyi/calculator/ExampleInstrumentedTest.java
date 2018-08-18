@@ -1,4 +1,4 @@
-package easyC.example.tarasvolianskyi.calculator;
+package easyC.easyCalc.tarasvolianskyi.calculator;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

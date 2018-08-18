@@ -1,10 +1,12 @@
-package com.example.tarasvolianskyi.calculator;
+package easyC.easyCalc.tarasvolianskyi.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.tarasvolianskyi.calculator.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
