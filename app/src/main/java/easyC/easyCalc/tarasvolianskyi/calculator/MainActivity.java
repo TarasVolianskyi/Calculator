@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String num3 = "";
     private String minusChange1 = "";
     private String minusChange2 = "";
+    private String minusChange2After = "";
     private String num1WithChang = "";
     private String num2WithChang = "";
     private String num3WithChang = "";
@@ -151,33 +152,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 methodBtnC();
                 break;
         }
-        textView.setText(minusChange1 + num1 + " " + stringAction + minusChange2 + " " + num2WithChang + num3);
-
+        textView.setText(minusChange1 + num1 + " " + stringAction + minusChange2 + " " +
+                num2 + minusChange2After + num3);
     }
 
     private void methodBtnChange() {
-        if (action == false) {
-            // num1 += "8";
-            if (boolChangeFirst == false) {
+        if (action = false) {
+            if (boolChangeFirst = false) {
                 boolChangeFirst = true;
-                num1WithChang = num1;
-                // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
-            } else {
+                minusChange1 = "- ";
+            } else if (boolChangeFirst = true) {
                 boolChangeFirst = false;
-                num1WithChang = num1;
-                // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
-
+                minusChange1 = "";
             }
-            //textView.setText("- " + num1);
-        } else {
-            if (boolChangeSec == false) {
+        } else if (action = true) {
+            if (boolChangeSec = false) {
                 boolChangeSec = true;
-                //textView.setText(num1WithChang + " " + stringAction + " ( -" + num2 + ")");
-            } else {
+                minusChange2 = "(- ";
+                minusChange2After = " )";
+            } else if (boolChangeSec = true) {
                 boolChangeSec = false;
-                //textView.setText(num1WithChang + " " + stringAction + " " + num2);
+                minusChange2 = "";
+                minusChange2After = "";
             }
-            // textView.setText(num1 + " " + stringAction + " " + num2);
         }
     }
 
@@ -197,20 +194,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void methodBtnResult() {
         doubleNum1 = Double.parseDouble(num1);
+        doubleNum2 = Double.parseDouble(num2);
 
         if (boolChangeFirst = true) {
             doubleNum1 = doubleNum1 * (-1);
-        } else {
+        } /* else if (boolChangeFirst = false) {
             doubleNum1 = doubleNum1 * 1;
         }
         doubleNum2 = Double.parseDouble(num2);
         if (boolChangeSec = true) {
             doubleNum2 = doubleNum2 * (-1);
-        } else {
+        } else if (boolChangeSec = false) {
             doubleNum2 = doubleNum2 * 1;
-        }
+        }*/
 
         switch (numAction) {
+            case 0:
+                doubleNum3 = doubleNum1;
             case 1:
                 doubleNum3 = doubleNum1 + doubleNum2;
                 break;
@@ -223,8 +223,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         num1 = "";
         num2 = "";
+        num3 = doubleNum3 + "";
         num1WithChang = "";
         num2WithChang = "";
+        minusChange1 = "";
+        minusChange2 = "";
+        minusChange2After = "";
+        stringAction = "";
         action = false;
         numAction = 0;
     }
@@ -239,8 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         doubleNum1 = 0;
         doubleNum2 = 0;
         doubleNum3 = 0;
+        stringAction = "";
         action = false;
         numAction = 0;
     }
-
 }
