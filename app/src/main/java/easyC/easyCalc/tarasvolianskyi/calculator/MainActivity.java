@@ -33,10 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String num1 = "";
     private String num2 = "";
     private String num3 = "";
-    private int intNum1;
-    private int intNum2;
-    private int intNum3;
-    private String stringAction;
+    private String minusChange1 = "";
+    private String minusChange2 = "";
+    private String num1WithChang = "";
+    private String num2WithChang = "";
+    private String num3WithChang = "";
+    private double doubleNum1;
+    private double doubleNum2;
+    private double doubleNum3;
+    private String stringAction="";
     private int numAction = 0;// 1+ 2- 3☓ 4÷
     private boolean boolChangeFirst = false;
     private boolean boolChangeSec = false;
@@ -97,46 +102,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn1:
                 if (action == false) {
                     num1 += "1";
-                    textView.setText(num1);
+
                 } else {
                     num2 += "1";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn2:
                 if (action == false) {
                     num1 += "2";
-                    textView.setText(num1);
+                    //  textView.setText(num1);
                 } else {
                     num2 += "2";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //  textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn3:
                 if (action == false) {
                     num1 += "3";
-                    textView.setText(num1);
+                    //  textView.setText(num1);
                 } else {
                     num2 += "3";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //   textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn4:
                 if (action == false) {
                     num1 += "4";
-                    textView.setText(num1);
+                    //   textView.setText(num1);
                 } else {
                     num2 += "4";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn5:
                 if (action == false) {
                     num1 += "5";
-                    textView.setText(num1);
+                    //textView.setText(num1);
                 } else {
                     num2 += "5";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //  textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn6:
@@ -145,25 +150,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textView.setText(num1);
                 } else {
                     num2 += "6";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //    textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn7:
                 if (action == false) {
                     num1 += "7";
-                    textView.setText(num1);
+                    //     textView.setText(num1);
                 } else {
                     num2 += "7";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //     textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn8:
                 if (action == false) {
                     num1 += "8";
-                    textView.setText(num1);
+                    //   textView.setText(num1);
                 } else {
                     num2 += "8";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //   textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn9:
@@ -172,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textView.setText(num1);
                 } else {
                     num2 += "9";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
             case R.id.btn0:
@@ -181,86 +186,113 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textView.setText(num1);
                 } else {
                     num2 += "0";
-                    textView.setText(num1 + " " + stringAction + " " + num2);
+                    //  textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
                 }
                 break;
-
+            //!!!!!!!!!!!!!!
             case R.id.btnChange:
-                 if (action == false) {
-                // num1 += "8";
-                if (boolChangeFirst == false) {
-                    boolChangeFirst = true;
-                    textView.setText("- " + num1);
-                } else {
-                    boolChangeFirst = false;
-                    textView.setText(num1);
-                }
+                if (action == false) {
+                    // num1 += "8";
+                    if (boolChangeFirst == false) {
+                        boolChangeFirst = true;
+                        num1WithChang = num1;
+                        // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
+                    } else {
+                        boolChangeFirst = false;
+                        num1WithChang = num1;
+                        // textView.setText(minusChange1 + num1WithChang + " " + stringAction + minusChange2 + " " + num2);
 
-                //textView.setText("- " + num1);
+                    }
+                    //textView.setText("- " + num1);
                 } else {
-                     if (boolChangeSec == false) {
-                         boolChangeSec = true;
-                         textView.setText(num1 + " " + stringAction + " ( -" + num2+")");
-                     } else {
-                         boolChangeSec = false;
-                         textView.setText(num1 + " " + stringAction + " " + num2);
-                     }
-                   // textView.setText(num1 + " " + stringAction + " " + num2);
+                    if (boolChangeSec == false) {
+                        boolChangeSec = true;
+                        //textView.setText(num1WithChang + " " + stringAction + " ( -" + num2 + ")");
+                    } else {
+                        boolChangeSec = false;
+                        //textView.setText(num1WithChang + " " + stringAction + " " + num2);
+                    }
+                    // textView.setText(num1 + " " + stringAction + " " + num2);
                 }
                 break;
             case R.id.btnPlus:
                 action = true;
                 stringAction = "+";
-                textView.setText(num1 + " " + stringAction);
                 numAction = 1;
                 break;
             case R.id.btnMin:
                 action = true;
                 stringAction = "-";
-                textView.setText(num1 + " " + stringAction);
                 numAction = 2;
                 break;
             case R.id.btnMult:
                 action = true;
                 stringAction = "☓";
-                textView.setText(num1 + " " + stringAction);
                 numAction = 3;
                 break;
             case R.id.btnDevide:
                 action = true;
                 stringAction = "÷";
-                textView.setText(num1 + " " + stringAction);
                 numAction = 4;
                 break;
             case R.id.btnEqvl:
-                intNum1 = Integer.parseInt(num1);
-                intNum2 = Integer.parseInt(num2);
+                methodBtnResult();
 
-                switch (numAction) {
-                    case 1:
-                        intNum3 = intNum1 + intNum2;
-                        break;
-                    case 2:
-                        intNum3 = intNum1 - intNum2;
-                        break;
-                    case 3:
-                        intNum3 = intNum1 * intNum2;
-                        break;
-                }
-                textView.setText(intNum3 + "");
-                num1 = "";
-                num2 = "";
-                action = false;
-                numAction = 0;
                 break;
             case R.id.btnC:
-                num1 = "";
-                num2 = "";
-                num3 = "";
-                action = false;
-                numAction = 0;
-                textView.setText("");
+                methodBtnC();
                 break;
         }
+        textView.setText(minusChange1 + num1 + " " + stringAction + minusChange2 + " " + num2WithChang + num3);
+
     }
+
+    private void methodBtnResult() {
+        doubleNum1 = Double.parseDouble(num1);
+
+        if (boolChangeFirst = true) {
+            doubleNum1 = doubleNum1 * (-1);
+        } else {
+            doubleNum1 = doubleNum1 * 1;
+        }
+        doubleNum2 = Double.parseDouble(num2);
+        if (boolChangeSec = true) {
+            doubleNum2 = doubleNum2 * (-1);
+        } else {
+            doubleNum2 = doubleNum2 * 1;
+        }
+
+        switch (numAction) {
+            case 1:
+                doubleNum3 = doubleNum1 + doubleNum2;
+                break;
+            case 2:
+                doubleNum3 = doubleNum1 - doubleNum2;
+                break;
+            case 3:
+                doubleNum3 = doubleNum1 * doubleNum2;
+                break;
+        }
+        num1 = "";
+        num2 = "";
+        num1WithChang = "";
+        num2WithChang = "";
+        action = false;
+        numAction = 0;
+    }
+
+    private void methodBtnC() {
+        num1 = "";
+        num2 = "";
+        num3 = "";
+        num1WithChang = "";
+        num2WithChang = "";
+        num3WithChang = "";
+        doubleNum1 = 0;
+        doubleNum2 = 0;
+        doubleNum3 = 0;
+        action = false;
+        numAction = 0;
+    }
+
 }
