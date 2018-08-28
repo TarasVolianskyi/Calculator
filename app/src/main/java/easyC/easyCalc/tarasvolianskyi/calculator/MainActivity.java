@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnPoint;
     private Button btnPercent;
     private Button btnChange;
+    private Button btnMinOne;
     private Button btnC;
     private String num1 = "";
     private String num2 = "";
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String minusChange1 = "";
     private String minusChange2 = "";
     private String minusChange2After = "";
-    private String num1WithChang = "";
-    private String num2WithChang = "";
+    private String minusChange_1 = "";
+    private String minusChange_2 = "";
     private String num3WithChang = "";
     private double doubleNum1;
     private double doubleNum2;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEqvl = findViewById(R.id.btnEqvl);
         btnChange = findViewById(R.id.btnChange);
         btnC = findViewById(R.id.btnC);
+        btnMinOne = findViewById(R.id.btnMinOne);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnChange.setOnClickListener(this);
         btnEqvl.setOnClickListener(this);
         btnC.setOnClickListener(this);
+        btnMinOne.setOnClickListener(this);
     }
 
     @Override
@@ -130,6 +133,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn0:
                 methodBtnOfNumber("0");
                 break;
+            case R.id.btnPoint:
+                methodBtnOfNumber(".");
+                break;
+            case R.id.btnMinOne:
+                methodBtnMinOne();
+                break;
             case R.id.btnChange:
                 methodBtnChange();
                 break;
@@ -156,24 +165,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 num2 + minusChange2After + num3);
     }
 
+    private void methodBtnMinOne() {
+        if (action == false) {
+            num1 = num1.substring(0, num1.length() - 1);
+        } else {
+            num2 = num2.substring(0, num2.length() - 1);
+        }
+    }
+
     private void methodBtnChange() {
         if (action = false) {
             if (boolChangeFirst = false) {
                 boolChangeFirst = true;
                 minusChange1 = "- ";
+                minusChange_1 = "-";
             } else if (boolChangeFirst = true) {
                 boolChangeFirst = false;
                 minusChange1 = "";
+                minusChange_1 = "";
             }
         } else if (action = true) {
             if (boolChangeSec = false) {
                 boolChangeSec = true;
                 minusChange2 = "(- ";
                 minusChange2After = " )";
+                minusChange_2 = "-";
             } else if (boolChangeSec = true) {
                 boolChangeSec = false;
                 minusChange2 = "";
                 minusChange2After = "";
+                minusChange_2 = "";
             }
         }
     }
@@ -193,24 +214,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void methodBtnResult() {
-        doubleNum1 = Double.parseDouble(num1);
-        doubleNum2 = Double.parseDouble(num2);
-
-        if (boolChangeFirst = true) {
-            doubleNum1 = doubleNum1 * (-1);
-        } /* else if (boolChangeFirst = false) {
-            doubleNum1 = doubleNum1 * 1;
-        }
-        doubleNum2 = Double.parseDouble(num2);
-        if (boolChangeSec = true) {
-            doubleNum2 = doubleNum2 * (-1);
-        } else if (boolChangeSec = false) {
-            doubleNum2 = doubleNum2 * 1;
-        }*/
+        doubleNum1 = Double.parseDouble(minusChange_1 + num1);
+        doubleNum2 = Double.parseDouble(minusChange_2 + num2);
 
         switch (numAction) {
             case 0:
                 doubleNum3 = doubleNum1;
+                break;
             case 1:
                 doubleNum3 = doubleNum1 + doubleNum2;
                 break;
@@ -220,12 +230,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 3:
                 doubleNum3 = doubleNum1 * doubleNum2;
                 break;
+            case 4:
+                doubleNum3 = doubleNum1 / doubleNum2;
+                break;
         }
         num1 = "";
         num2 = "";
         num3 = doubleNum3 + "";
-        num1WithChang = "";
-        num2WithChang = "";
         minusChange1 = "";
         minusChange2 = "";
         minusChange2After = "";
@@ -238,9 +249,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num1 = "";
         num2 = "";
         num3 = "";
-        num1WithChang = "";
-        num2WithChang = "";
-        num3WithChang = "";
+        minusChange1 = "";
+        minusChange2 = "";
+        minusChange2After = "";
         doubleNum1 = 0;
         doubleNum2 = 0;
         doubleNum3 = 0;
